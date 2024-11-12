@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate.io</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            margin-top: 50px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1 {
+            font-size: 24px;
+            color: #555;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #result {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 20px;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculate.io</h1>
+    <p>Simple Program to Perform Basic Calculations</p>
+
+    <label>Enter the first number: <input id="txt1" type="number" /></label><br />
+    <label>Enter the second number: <input id="txt2" type="number" /></label><br />
+    
+    <div>
+        <button onclick="calculate('add')">Add</button>
+        <button onclick="calculate('subtract')">Subtract</button>
+        <button onclick="calculate('multiply')">Multiply</button>
+        <button onclick="calculate('divide')">Divide</button>
+    </div>
+
+    <p>The result is:</p>
+    <h1 id="result"></h1>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <h2>About Us</h2>
+    <p>This project demonstrates a basic calculation tool. Building it involved understanding web technologies and scripting. It allows users to add, subtract, multiply, and divide two numbers easily, with a responsive and interactive design.</p>
+
+    <h2>Developers</h2>
+    <p>Swastik Singh</p>
+
+    <script>
+        function calculate(operation) {
+            var num1 = parseFloat(document.getElementById("txt1").value);
+            var num2 = parseFloat(document.getElementById("txt2").value);
+            var result;
+
+            if (operation === "add") {
+                result = num1 + num2;
+            } else if (operation === "subtract") {
+                result = num1 - num2;
+            } else if (operation === "multiply") {
+                result = num1 * num2;
+            } else if (operation === "divide") {
+                result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
